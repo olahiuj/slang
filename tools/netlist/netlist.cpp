@@ -31,6 +31,7 @@
 #include "slang/util/TimeTrace.h"
 #include "slang/util/Util.h"
 #include "slang/util/VersionInfo.h"
+#include "slang/util/Timer.h"
 
 using namespace slang;
 using namespace slang::ast;
@@ -252,12 +253,16 @@ int main(int argc, char** argv) {
             return 0;
         }
 
+        qihe::Timer timer;
+
         // Create the netlist by traversing the AST.
         Netlist netlist;
         NetlistVisitor visitor(*compilation, netlist);
         compilation->getRoot().visit(visitor);
         netlist.split();
         DEBUG_PRINT("Netlist has {} nodes and {} edges\n", netlist.numNodes(), netlist.numEdges());
+
+        timer.tick();
 
         // Output a DOT file of the netlist.
         if (netlistDotFile) {
