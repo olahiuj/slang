@@ -18,8 +18,7 @@ FetchContent_Declare(
   fmt
   GIT_REPOSITORY https://github.com/fmtlib/fmt.git
   GIT_TAG 10.2.1
-  GIT_SHALLOW ON
-  ${find_pkg_args})
+  GIT_SHALLOW ON)
 
 # Force fmtlib to always be a static lib if we pull it via FetchContent (i.e.
 # not intercepted by find_package), since it's a private dependency that's
@@ -95,8 +94,7 @@ if(SLANG_USE_MIMALLOC)
     mimalloc
     GIT_REPOSITORY https://github.com/microsoft/mimalloc.git
     GIT_TAG v2.1.2
-    GIT_SHALLOW ON
-    ${find_pkg_args})
+    GIT_SHALLOW ON)
   FetchContent_MakeAvailable(mimalloc)
 
   if(NOT TARGET mimalloc-static)
@@ -136,8 +134,7 @@ if(SLANG_INCLUDE_TESTS)
     Catch2
     GIT_REPOSITORY https://github.com/catchorg/Catch2.git
     GIT_TAG v3.6.0
-    GIT_SHALLOW ON
-    ${find_pkg_args})
+    GIT_SHALLOW ON)
   FetchContent_MakeAvailable(Catch2)
 
   if(NOT TARGET Catch2::Catch2)
