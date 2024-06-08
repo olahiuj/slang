@@ -253,7 +253,7 @@ int main(int argc, char** argv) {
             return 0;
         }
 
-        qihe::Timer timer;
+        qihe::Timer timer(__PRETTY_FUNCTION__);
 
         // Create the netlist by traversing the AST.
         Netlist netlist;
