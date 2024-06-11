@@ -306,7 +306,7 @@ int main(int argc, char** argv) {
         }
 
         // No action performed.
-        return 1;
+        return 0;
     }
     SLANG_CATCH(const std::exception& e) {
 #if __cpp_exceptions
