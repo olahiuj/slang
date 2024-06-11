@@ -271,9 +271,11 @@ int main(int argc, char** argv) {
         }
 
         if (combLoops == true) {
+            qihe::Timer loopTimer("LoopCheck");
             ElementaryCyclesSearch ecs(netlist);
             std::vector<CycleListType>* cycles = ecs.getElementaryCycles();
             dumpCyclesList(*compilation, netlist, cycles);
+            loopTimer.tick();
         }
         // Find a point-to-point path in the netlist.
         if (fromPointName.has_value() && toPointName.has_value()) {
